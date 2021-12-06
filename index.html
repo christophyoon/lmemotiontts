@@ -1,0 +1,573 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>
+		Language Model-Based Emotion PredictionMethods for Emotional Speech Synthesis Systems
+    </title>
+    <link rel="shortcut icon" href="img/clova_192x192.png">
+    <link rel="icon" href="img/clova_192x192.png">
+    <link rel="apple-touch-icon" href="img/clova_192x192.png">
+</head>
+<body>
+
+<article>
+    <header>
+        <h1>Language Model-Based Emotion PredictionMethods for Emotional Speech Synthesis Systems</h1>
+    </header>
+</article>
+
+<style>
+	textarea {
+		width: 200px;
+	}
+</style>
+<hr><hr>
+<div>
+<b>Authors: Hyunwook Yoon, Ohsung Kwon, Hoyeon Lee, Ryuichi Yamamoto, Eunwoo Song, Jae-Min Kim, and Min-Jae Hwang</b>
+<ul>
+  <li><b>Abstract</b></li>
+	This letter proposes an effective emotional text-to-speech (TTS) system with a pre-trained language model (LM)-based emotion prediction method.
+	Unlike conventional emotional TTS systems that require auxiliary inputs such as manually defined emotion classes, our system directly estimates emotion-related attributes from the input text.
+	Specifically, a generative pre-trained transformer 3 (GPT-3), which is a recent state-of-the-art LM, was adopted to jointly predict both the emotion class and its strength in representing emotions’ coarse and fine properties, respectively.
+	Then, these attributes were combined in the emotional embedding space and used as conditional features of TTS model for generating output speech signal.
+	Consequently, the proposed system can produce emotional speech only from text without any auxiliary inputs.
+	Furthermore, because the GPT-3 enables the capturing of the emotional context among the consecutive sentences, the proposed method can effectively handle paragraph-level speech generation. 
+	Subjective evaluation results further verified the advantages of the proposed method compared to conventional systems.
+</ul>
+<ul>
+  <li><b>Submitted to <a href=https://signalprocessingsociety.org/publications-resources/ieee-signal-processing-letters>SPL 2021</a></b></li>
+</ul>
+</div>  
+<br>
+
+<hr><hr>
+
+<div>
+<h2 id="c1"> <font size='5'>Section 4.C. Subjective evaluations</h2>
+<ul>
+
+<li><b><font size='4'>Results</b></li>
+<div>
+<img src="img/result1.png", width=1000px>
+</div>
+<br>
+
+<li><b><font size='4'>Audio Samples</b></li>
+<style type="text/css">
+	.tg  {border-collapse:collapse;border-spacing:0;border:none;}
+	.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+	.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+	.tg .tg-8jgo{border-color:#ffffff;text-align:center;vertical-align:top}
+	.tg .tg-lghr{border-color:#ffffff;text-align:center}
+	.tg .tg-0a55{background-color:#f0f0f0;border-color:#ffffff;text-align:center;vertical-align:top}
+	.tg .tg-modu{background-color:#f0f0f0;border-color:#ffffff;text-align:center}
+</style>
+
+<table class="tg">
+<style>
+  table {
+    width: 900px; <!--45%-->;
+    border-top: 2px solid #444444;
+	border-bottom: 2px solid #444444;
+    border-collapse: collapse;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+  }
+  th {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+  }
+  td {
+	text-align: center;
+    border-top: 1px solid #C0C0C0;
+	border-bottom: 1px solid #C0C0C0;
+    border-collapse: collapse;
+	padding-top: 5px;
+	padding-bottom: 5px;
+  }
+  .jb-normal {
+	font-weight: bold;
+  }
+</style>
+<table>
+	<tr>
+		<th><font size='4'>System</th>
+		<th><font size='3'>S1</th>
+		<th><font size='3'>S2</th>
+		<th><font size='3'>S3</th>
+		<th style="color:red"><font size='3'>S4 (ours)</th>
+		<th style="color:green"><font size='3'>Recordings</th>
+	</tr>
+	<tr>
+		<th><font size='4'>Emotion Class</th>
+		<th><font size='3'>Manual</th>
+		<th><font size='3'>Predict</th>
+		<th><font size='3'>Manual</th>
+		<th style="color:red"><font size='3'>Predict</th>
+		<th><font size='3'>-</th>
+	</tr>
+	<tr>
+		<th><font size='4'>Emotion Strength</th>
+		<th><font size='3'>Manual</th>
+		<th><font size='3'>Manual</th>
+		<th><font size='3'>Predict</th>
+		<th style="color:red"><font size='3'>Predict</th>
+		<th><font size='3'>-</th>
+	</tr>
+	<!-- <tr>
+		<th><font size='2'>Model</th>
+		<th><font size='2'>WaveNet</th>
+		<th><font size='2'>PWG</th>
+		<th><font size='2'>HN-PWG w/o noise</th>
+		<th style="color:red"><font size='2'>HN-PWG</th>
+		<th style="color:red"><font size='2'>Multi-band HN-PWG</th>
+		<th style="color:green"><font size='2'>Recordings</th>
+	</tr> -->
+	<tr>
+		<tr>
+		<td align="left"> <font size='3'> <b>Script<br>Translation<br>Emotion</b></td>
+		<td colspan="5">"지금부터 동화를 들어볼까요?"<br>"Shall we listen to fairy tales now?"<br><b style="color:#f5c71a">Neutral</b></td>
+		</tr>
+		<tr>
+		<th><font size='2'>System</th>
+		<th><font size='2'>S1</th>
+		<th><font size='2'>S2</th>
+		<th><font size='2'>S3</th>
+		<th style="color:red"><font size='2'>S4 (ours)</th>
+		<th style="color:green"><font size='2'>Recordings</th>
+		</tr>
+		<th>Audio</th>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/S1/test_000001_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/S2/test_000001_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/S3/test_000001_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/S4/test_000001_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/Record/neu_1.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"> <font size='3'> <b>Script<br>Translation<br>Emotion</b></td>
+		<td colspan="5">"음악을 들려주거나 음악 관련 정보를 알려주는 전문적인 방송 채널입니다."<br>"It is a professional broadcast channel that plays music or informs music-related information."<br><b style="color:#f5c71a">Neutral</b></td>
+		</tr>
+		<tr>
+		<th><font size='2'>System</th>
+		<th><font size='2'>S1</th>
+		<th><font size='2'>S2</th>
+		<th><font size='2'>S3</th>
+		<th style="color:red"><font size='2'>S4 (ours)</th>
+		<th style="color:green"><font size='2'>Recordings</th>
+		</tr>
+		<th>Audio</th>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/S1/test_000005_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/S2/test_000005_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/S3/test_000005_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/S4/test_000005_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/Record/neu_2.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"> <font size='3'> <b>Script<br>Translation<br>Emotion</b></td>
+		<td colspan="5">"업데이트가 되면 다시 알려드릴게요."<br>"I'll let you know again when it's updated."<br><b style="color:#f5c71a">Neutral</b></td>
+		</tr>
+		<tr>
+		<th><font size='2'>System</th>
+		<th><font size='2'>S1</th>
+		<th><font size='2'>S2</th>
+		<th><font size='2'>S3</th>
+		<th style="color:red"><font size='2'>S4 (ours)</th>
+		<th style="color:green"><font size='2'>Recordings</th>
+		</tr>
+		<th>Audio</th>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/S1/test_000007_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/S2/test_000007_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/S3/test_000007_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/S4/test_000007_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_neu/Record/neu_3.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"> <font size='3'> <b>Script<br>Translation<br>Emotion</b></td>
+		<td colspan="5">"당신과 대화하는 것이랍니다."<br>"(One thing is) having a conversation with you."<br><b style="color:green">Joy</b></td>
+		</tr>
+		<tr>
+		<th><font size='2'>System</th>
+		<th><font size='2'>S1</th>
+		<th><font size='2'>S2</th>
+		<th><font size='2'>S3</th>
+		<th style="color:red"><font size='2'>S4 (ours)</th>
+		<th style="color:green"><font size='2'>Recordings</th>
+		</tr>
+		<th>Audio</th>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/S1/test_000001_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/S2/test_000001_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/S3/test_000001_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/S4/test_000001_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/Record/joy_1.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"> <font size='3'> <b>Script<br>Translation<br>Emotion</b></td>
+		<td colspan="5">"힘들어도 포기하지 않는 모습이 가장 멋져요."<br>"It's best not to give up even if it's hard."<br><b style="color:green">Joy</b></td>
+		</tr>
+		<tr>
+		<th><font size='2'>System</th>
+		<th><font size='2'>S1</th>
+		<th><font size='2'>S2</th>
+		<th><font size='2'>S3</th>
+		<th style="color:red"><font size='2'>S4 (ours)</th>
+		<th style="color:green"><font size='2'>Recordings</th>
+		</tr>
+		<th>Audio</th>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/S1/test_000002_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/S2/test_000002_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/S3/test_000002_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/S4/test_000002_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/Record/joy_2.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"> <font size='3'> <b>Script<br>Translation<br>Emotion</b></td>
+		<td colspan="5">"벌써 아침인가요?"<br>"Is it morning already?"<br><b style="color:green">Joy</b></td>
+		</tr>
+		<tr>
+		<th><font size='2'>System</th>
+		<th><font size='2'>S1</th>
+		<th><font size='2'>S2</th>
+		<th><font size='2'>S3</th>
+		<th style="color:red"><font size='2'>S4 (ours)</th>
+		<th style="color:green"><font size='2'>Recordings</th>
+		</tr>
+		<th>Audio</th>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/S1/test_000005_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/S2/test_000005_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/S3/test_000005_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/S4/test_000005_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_joy/Record/joy_3.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"> <font size='3'> <b>Script<br>Translation<br>Emotion</b></td>
+		<td colspan="5">"그런데 새어머니는, 연이랑 같이 살기 싫어서 연이를 못살게 굴었다."<br>"But Yeon's stepmother was mean to Yeon because she didn't want to live with her."<br><b style="color:red">Anger</b></td>
+		</tr>
+		<tr>
+		<th><font size='2'>System</th>
+		<th><font size='2'>S1</th>
+		<th><font size='2'>S2</th>
+		<th><font size='2'>S3</th>
+		<th style="color:red"><font size='2'>S4 (ours)</th>
+		<th style="color:green"><font size='2'>Recordings</th>
+		</tr>
+		<th>Audio</th>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/S1/test_000001_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/S2/test_000001_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/S3/test_000001_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/S4/test_000001_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/Record/ang_1.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"> <font size='3'> <b>Script<br>Translation<br>Emotion</b></td>
+		<td colspan="5">"난 약한 친구들을 괴롭히는 심술쟁이는 딱 질색이야."<br>"I don't like a dog in the manger who bullies weak friends."<br><b style="color:red">Anger</b></td>
+		</tr>
+		<tr>
+		<th><font size='2'>System</th>
+		<th><font size='2'>S1</th>
+		<th><font size='2'>S2</th>
+		<th><font size='2'>S3</th>
+		<th style="color:red"><font size='2'>S4 (ours)</th>
+		<th style="color:green"><font size='2'>Recordings</th>
+		</tr>
+		<th>Audio</th>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/S1/test_000003_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/S2/test_000003_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/S3/test_000003_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/S4/test_000003_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/Record/ang_2.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"> <font size='3'> <b>Script<br>Translation<br>Emotion</b></td>
+		<td colspan="5">"내가 그렇게 타일렀는데도 한반 친구를 괴롭하다니, 나쁜 녀석들!"<br>"You guys are such a meaner to keep bullying classmates even though I've been gentle with you."<br><b style="color:red">Anger</b></td>
+		</tr>
+		<tr>
+		<th><font size='2'>System</th>
+		<th><font size='2'>S1</th>
+		<th><font size='2'>S2</th>
+		<th><font size='2'>S3</th>
+		<th style="color:red"><font size='2'>S4 (ours)</th>
+		<th style="color:green"><font size='2'>Recordings</th>
+		</tr>
+		<th>Audio</th>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/S1/test_000004_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/S2/test_000004_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/S3/test_000004_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/S4/test_000004_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_ang/Record/ang_3.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"> <font size='3'> <b>Script<br>Translation<br>Emotion</b></td>
+		<td colspan="5">"잘못한게 있다면 사과해야죠."<br>"If I did something wrong, I should apologize."<br><b style="color:blue">Sadness</b></td>
+		</tr>
+		<tr>
+		<th><font size='2'>System</th>
+		<th><font size='2'>S1</th>
+		<th><font size='2'>S2</th>
+		<th><font size='2'>S3</th>
+		<th style="color:red"><font size='2'>S4 (ours)</th>
+		<th style="color:green"><font size='2'>Recordings</th>
+		</tr>
+		<th>Audio</th>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/S1/test_000012_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/S2/test_000012_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/S3/test_000012_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/S4/test_000012_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/Record/sad_1.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"> <font size='3'> <b>Script<br>Translation<br>Emotion</b></td>
+		<td colspan="5">"저도 괜히 짠해지네요."<br>"I feel sad for no reason."<br><b style="color:blue">Sadness</b></td>
+		</tr>
+		<tr>
+		<th><font size='2'>System</th>
+		<th><font size='2'>S1</th>
+		<th><font size='2'>S2</th>
+		<th><font size='2'>S3</th>
+		<th style="color:red"><font size='2'>S4 (ours)</th>
+		<th style="color:green"><font size='2'>Recordings</th>
+		</tr>
+		<th>Audio</th>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/S1/test_000013_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/S2/test_000013_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/S3/test_000013_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/S4/test_000013_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/Record/sad_2.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"> <font size='3'> <b>Script<br>Translation<br>Emotion</b></td>
+		<td colspan="5">"기분 나쁘셨다면, 주의하도록 할게요."<br>"I'll be more careful if you were offended."<br><b style="color:blue">Sadness</b></td>
+		</tr>
+		<tr>
+		<th><font size='2'>System</th>
+		<th><font size='2'>S1</th>
+		<th><font size='2'>S2</th>
+		<th><font size='2'>S3</th>
+		<th style="color:red"><font size='2'>S4 (ours)</th>
+		<th style="color:green"><font size='2'>Recordings</th>
+		</tr>
+		<th>Audio</th>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/S1/test_000014_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/S2/test_000014_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/S3/test_000014_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/S4/test_000014_norm.wav"></audio></td>
+		<td><audio controls style="width: 140px;"><source src="samples/1_Sub/MOS_sad/Record/sad_3.wav"></audio></td>
+	</tr>
+
+</table>
+</ul> 
+</div>
+
+<hr><hr>
+
+<div>
+<h2 id="c1"> <font size='5'>Section 4.D. Paragraph-level emotional speech synthesis</h2>
+<ul>
+
+<li><b><font size='4'>Results</b></li>
+<div>
+<img src="img/result2.png", width=500px>
+</div>
+<br>
+
+<li><b><font size='4'>Audio Samples</b></li>
+<style type="text/css">
+	.tg  {border-collapse:collapse;border-spacing:0;border:none;}
+	.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+	.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+	.tg .tg-8jgo{border-color:#ffffff;text-align:center;vertical-align:top}
+	.tg .tg-lghr{border-color:#ffffff;text-align:center}
+	.tg .tg-0a55{background-color:#f0f0f0;border-color:#ffffff;text-align:center;vertical-align:top}
+	.tg .tg-modu{background-color:#f0f0f0;border-color:#ffffff;text-align:center}
+</style>
+
+
+<table class="tg">
+<style>
+  table {
+    width: 900px; <!--45%-->;
+    border-top: 2px solid #444444;
+	border-bottom: 2px solid #444444;
+    border-collapse: collapse;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+  }
+  th {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+  }
+  td {
+	text-align: center;
+    border-top: 1px solid #C0C0C0;
+	border-bottom: 1px solid #C0C0C0;
+    border-collapse: collapse;
+	padding-top: 5px;
+	padding-bottom: 5px;
+  }
+  .jb-normal {
+	font-weight: bold;
+  }
+  sub {
+	  vertical-align: sub;
+	  font-size: smaller;
+  }
+</style>
+
+<table>
+	<tr>
+		<th><font size='4'>System</th>
+		<th colspan="2"><font size='4'>S1</th>
+		<th colspan="2"><font size='4'>S4<sub>single</sub></th>
+		<th colspan="2" style="color:red"><font size='4'>S4<sub>multi</sub></th>
+	</tr>
+	<tr>
+		<th>Audio</th>
+		<td colspan="2"><audio controls style="width: 200px;"><source src="samples/2_Pha/Sample_1/S1.wav"></audio></td>
+		<td colspan="2"><audio controls style="width: 200px;"><source src="samples/2_Pha/Sample_1/S4_single.wav"></audio></td>
+		<td colspan="2"><audio controls style="width: 200px;"><source src="samples/2_Pha/Sample_1/S4_multi.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"><font size='3'><b>Scripts</b></td>
+		<td></td>
+		<td colspan="6">
+		<p style="text-align:left;">
+		"제비는 혼잣말을 했다." | <b style="color:#f5c71a">Neutral</b><br>
+		"Swallow talked himself." | <b style="color:#f5c71a">Neutral</b><br><br>
+
+		"그녀는 통 말을 안 해." | <b style="color:red">Anger</b><br>
+		"She doesn't talk to much." | <b style="color:red">Anger</b><br><br>
+
+		"게다가 바람둥이가 아닐까 싶어." | <b style="color:red">Anger</b><br>
+		"Besides, I think she's a playgirl." | <b style="color:red">Anger</b><br><br>
+
+		"확실히 바람이 불 때마다 갈대는 몸을 숙이며 아주 우아하게 인사했다." | <b style="color:#f5c71a">Neutral</b><br>
+		"Certainly, whenever the wind blew, the reed bowed and greeted very gracefully." | <b style="color:#f5c71a">Neutral</b><br><br>
+
+		"제비는 계속 말했다." | <b style="color:#f5c71a">Neutral</b><br>
+		"The swallow kept talking." | <b style="color:#f5c71a">Neutral</b><br><br>
+
+		"그녀는 너무 집에만 붙어 있어." | <b style="color:red">Anger</b><br>
+		"She's too attached to the house." | <b style="color:red">Anger</b><br><br>
+		</p>
+		</td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<th><font size='4'>System</th>
+		<th colspan="2"><font size='4'>S1</th>
+		<th colspan="2"><font size='4'>S4<sub>single</sub></th>
+		<th colspan="2" style="color:red"><font size='4'>S4<sub>multi</sub></th>
+	</tr>
+	<tr>
+		<th>Audio</th>
+		<td colspan="2"><audio controls style="width: 200px;"><source src="samples/2_Pha/Sample_2/S1.wav"></audio></td>
+		<td colspan="2"><audio controls style="width: 200px;"><source src="samples/2_Pha/Sample_2/S4_single.wav"></audio></td>
+		<td colspan="2"><audio controls style="width: 200px;"><source src="samples/2_Pha/Sample_2/S4_multi.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"><font size='3'><b>Scripts</b></td>
+		<td>
+		</td>
+		<td colspan="6">
+		<p style="text-align:left;">
+		"옷매무새를 고치며 남자가 달갑지 않다는 투로 물었다." | <b style="color:#f5c71a">Neutral</b><br>
+		"The man asked in an unwelcome tone while fixing his clothes." | <b style="color:#f5c71a">Neutral</b><br><br>
+
+		"무슨 일이시오?" | <b style="color:red">Anger</b><br>
+		"What's going on?" | <b style="color:red">Anger</b><br><br>
+
+		"그리고 훈계조로 한마디 덧붙였다." | <b style="color:#f5c71a">Neutral</b><br>
+		"And he added the words with admonishing tone." | <b style="color:#f5c71a">Neutral</b><br><br>
+
+		"방에, 들어오기 전에, 노크를 하셔야죠!" | <b style="color:red">Anger</b><br>
+		"Before you come into the room, knock on the door!" | <b style="color:red">Anger</b><br><br>
+
+		"그의 등뒤 어둑한 방안에서 하얗고 큰 새 같은 것이 부산스럽게 움직이는가 싶더니 낭랑하고 명랑한 목소리가 들려왔다." | <b style="color:#f5c71a">Neutral</b><br>
+		"In the dark room behind his back, I thought something like a white and big bird was moving busily, and a cheerful voice came out." | <b style="color:#f5c71a">Neutral</b><br><br>
+
+		"특히 부부가 사는 집에 들어올 때는 말이에요..." | <b style="color:green">Joy</b><br>
+		"Especially when you come into a married couple's house..." | <b style="color:green">Joy</b><br><br>
+		</p>
+		</td>
+	</tr>
+</table>
+
+<!-- <table>
+	<tr>
+		<th><font size='4'>System</th>
+		<th colspan="2"><font size='4'>S1</th>
+		<th colspan="2"><font size='4'>S4<sub>single</sub></th>
+		<th colspan="2" style="color:red"><font size='4'>S4<sub>multi</sub></th>
+	</tr>
+	<tr>
+		<th>Audio</th>
+		<td colspan="2"><audio controls style="width: 200px;"><source src="samples/2_Pha/Sample_2/S1.wav"></audio></td>
+		<td colspan="2"><audio controls style="width: 200px;"><source src="samples/2_Pha/Sample_2/S4_single.wav"></audio></td>
+		<td colspan="2"><audio controls style="width: 200px;"><source src="samples/2_Pha/Sample_2/S4_multi.wav"></audio></td>
+	</tr>
+	<tr>
+		<tr>
+		<td align="left"><font size='3'><b>Scripts</b></td>
+		<td>
+		</td>
+		<td colspan="6">
+		<p style="text-align:left;">
+		"문틀을 잡으며 몸매가 늘씬한 여자가 나타났다." | <b style="color:#f5c71a">Neutral</b><br>
+		"" | <b style="color:#f5c71a">Neutral</b><br><br>
+
+		"누구시죠?" | <b style="color:#f5c71a">Neutral</b><br>
+		"What's going on?" | <b style="color:#f5c71a">Neutral</b><br><br>
+
+		"여인은 파르스름한 눈에 미소를 띠고 나를 바라보았다." | <b style="color:#f5c71a">Neutral</b><br>
+		"And he added the words with admonishing tone." | <b style="color:#f5c71a">Neutral</b><br><br>
+
+		"경찰이세요?" | <b style="color:green">Joy</b><br>
+		"Before you come into the room, knock on the door!" | <b style="color:green">Joy</b><br><br>
+
+		"아닙니다, 바지만 이렇습니다." | <b style="color:#f5c71a">Neutral</b><br>
+		"In the dark room behind his back, I thought something like a white and big bird was moving busily, and a cheerful voice came out." | <b style="color:#f5c71a">Neutral</b><br><br>
+
+		"내가 이렇게 공손하게 대답했지만 그 여자는 웃음을 터뜨렸다." | <b style="color:green">Joy</b><br>
+		"Especially when you come into a married couple's house..." | <b style="color:green">Joy</b><br><br>
+		</p>
+		</td>
+	</tr>
+</table> -->
+
+</ul> 
+</div>
+
+<br>
+
+<hr><hr>
+<div>
+<h2> Acknowledgements </h2>
+<ul> Work performed with nVoice team, Clova Voice, Naver Corp. </ul>  
+<br>
+</div>
+
+
+</body>
+</html>
